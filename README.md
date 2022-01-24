@@ -319,3 +319,74 @@ var intersect = function(nums1, nums2) {
 
 [
   ](https://leetcode-cn.com/leetbook/read/top-interview-questions-easy/x2ba4i/)
+
+### 206题-反转链表
+
+// ### 解题思路
+
+// ##### 双指针法：
+
+// left 左指针 ，right 右指针，
+
+
+
+// 因为再反转后头节点的next指向为null，所以初始化 left = null; right = head;
+
+// 通过while循环当right为null时结束循环， 因为在每次循环时都会将right.next 指向 left ,导致right原来的next丢失，所有使用中间指针info保存 right.next 的值 ,最后将left和right同时向后移动。
+
+// 循环结束时right指向null,所以将left指针给head.并返回head
+
+
+
+// ### 代码
+
+```
+/**
+
+ \* Definition for singly-linked list.
+
+ \* function ListNode(val, next) {
+
+ \*   this.val = (val===undefined ? 0 : val)
+
+ \*   this.next = (next===undefined ? null : next)
+
+ \* }
+
+ */
+
+/**
+
+ \* @param {ListNode} head
+
+ \* @return {ListNode}
+
+ */
+
+var reverseList = function(head) {
+
+  let left = null;
+
+  let right = head;
+
+  while(right){
+
+​    const info = right.next;
+
+​    right.next = left;
+
+​    left = right;
+
+​    right = info;
+
+  }
+
+  head = left;
+
+  return head;
+
+};
+```
+
+
+
