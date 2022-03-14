@@ -45,6 +45,7 @@
 
 
 // 方法二 双指针法
+var removeNthFromEnd = function(head, n) {
 // 判断是否为空指针
 if(!head) return null;
 
@@ -62,3 +63,4 @@ while(cur){
 // 改变pre的后续节点
 pre.next = pre.next.next;
 return hair.next;
+}
