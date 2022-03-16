@@ -22,7 +22,7 @@
     // 设置结果数组
     const res = [];
     // 不断向队列中推入弹出元素
-        while(q.length){
+    while(q.length){
         // 使用len记录每层的元素个数
         let len = q.length;
         // 首先向结果数组中推入一个空数组
