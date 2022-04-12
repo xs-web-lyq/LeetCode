@@ -594,3 +594,210 @@ var intersection = function(nums1, nums2) {
 \```
 ```
 
+##### 字典解法
+
+```
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+var intersection = function(nums1, nums2) {
+    // // 首先将两数组进行去重
+    // return [...new Set(nums1)].filter(item => new Set(nums2).has(item))
+
+    // 使用字典进行求解。。。
+    const map = new Map();
+    // 将nums1中的元素放到map中，键为nums1中的元素，值为布尔值
+    nums1.forEach(item => map.set(item,true))
+    // 创建一个结果数组
+    const res = [];
+    nums2.forEach(item => {
+        // 判断nums2中是否有元素存在map中
+        if(map.get(item)){
+            // 将存在的元素push到res中，并删除map中item元素。防止重复记录
+            res.push(item);
+            map.delete(item)
+        }
+    })
+    return res
+};
+```
+
+### 20-有效的括号
+
+##### // 方法一
+
+// 解题思路
+
+// 利用栈结构进行求解。
+
+// 首先判断长度是奇数还是偶数。进行判断返回 值
+
+
+
+// 创建一个数组作为栈，循环遍历字符串，左括号压入栈，右括号进行与栈顶元素比对成功就弹出栈顶元素，否则匹配失败。。。最后循环结束，判断栈中长度如果为0则括号有效，否则无效。
+
+```
+/**
+
+ \* @param {string} s
+
+ \* @return {boolean}
+
+ */
+
+ var isValid = function(s) {
+
+  if (s.length % 2 === 1){
+
+​    return false;
+
+  }
+
+  const str=[];
+
+  for(let i=0;i<s.length;i += 1){
+
+​    const c = s[i]
+
+​    if(c ==='(' || c ==='{' || c ==='['){
+
+​      str.push(c);
+
+​    }else{
+
+​      const t = str[str.length-1]
+
+​      if(
+
+​        c===')'&&t==='(' || 
+
+​        c===']'&&t==='[' || 
+
+​        c==='}'&&t==='{'
+
+​      ) {
+
+​        str.pop();
+
+​      }
+
+​      else{
+
+​        return false;
+
+​      }
+
+​    }
+
+  }
+
+  return str.length === 0
+
+};
+
+
+```
+
+
+
+
+
+
+
+#### // 方法二
+
+// ### 解题思路
+
+// 使用字典进行求解：
+
+// 首先创建字典将三组括号key为左括号，value为右括号。供匹配使用
+
+// 结合栈，使用字典简化条件判断的复杂。
+
+```
+// ### 代码
+
+
+
+// ```javascript
+
+/**
+
+ \* @param {string} s
+
+ \* @return {boolean}
+
+ */
+
+var isValid = function(s) {
+
+  if (s.length % 2 === 1){
+
+​    return false;
+
+  }
+
+  const str = [];
+
+  const map = new Map();
+
+  map.set('(',')')
+
+  map.set('[',']')
+
+  map.set('{','}')
+
+  for(let i=0;i<s.length;i += 1){
+
+​    const c = s[i]
+
+​    if(map.has(c)){
+
+​      str.push(c);
+
+​    }else{
+
+​      const t = str[str.length-1]
+
+​      if(map.get(t)===c) {
+
+​        str.pop();
+
+​      }
+
+​      else{
+
+​        return false;
+
+​      }
+
+​    }
+
+  }
+
+  return str.length === 0
+
+};
+```
+
+203. 移除链表元素
+169. 多数元素 
+796. 旋转字符串
+58. 最后一个单词的长度
+258. 各位相加
+231. 2 的幂
+290. 单词规律
+429. N 叉树的层序遍历
+160. 相交链表
+367. 有效的完全平方数
+383. 赎金信
+804. 唯一摩尔斯密码词
+
+### 递归
+226. 翻转二叉树
+
+
+### Double pointer
+806. 写字符串需要的行数
