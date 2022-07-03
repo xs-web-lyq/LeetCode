@@ -25,6 +25,9 @@
 剑指 Offer II 002. 二进制加法
 剑指 Offer 53 - II. 0～n-1中缺失的数字
 剑指 Offer II 018. 有效的回文
+剑指 Offer 03. 数组中重复的数字
+剑指 Offer 05. 替换空格
+剑指 Offer 06. 从尾到头打印链表
 
 ### A-daily-topic
 1672. 最富有客户的资产总量
