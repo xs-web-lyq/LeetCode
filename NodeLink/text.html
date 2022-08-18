@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function selectSort(num) {
+            for (let i = 0; i < num.length - 1; i++) {
+                let index = i
+                for (let j = i + 1; j < num.length; j++) {
+                    if (num[index] > num[j]) index = j
+                }
+                if (index !== i) [num[i], num[index]] = [num[index], num[i]];
+            }
+
+            console.log(num)
+        }
+        let num = [5, 2, 6, 7, 8, 6, 2, 5, 24, 9]
+        selectSort(num)
+    </script>
+</body>
+
+</html>
