@@ -17,5 +17,6 @@
         arr.unshift(p.val);
         p = p.next
     }
+    console.log(arr)
     return arr
 };
