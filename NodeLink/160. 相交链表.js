@@ -27,3 +27,19 @@
     }
     return null;
 };
+
+
+
+ 
+ var getIntersectionNode = function(headA, headB) {
+    if(headA == null || headB == null) return null
+    let curA = headA, curB = headB;
+
+    // A + B + C == C + B + A
+    // 如果两个走到头是去另一个链表上走当走到交叉处是会相遇，即使没有交接点也会在走完两链表指针指向null时结束
+    while(curA !== curB){
+        curA = curA !== null ? curA.next : headB;
+        curB = curB !== null ? curB.next : headA;
+    }
+    return curA
+};
