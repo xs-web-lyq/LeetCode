@@ -41,3 +41,26 @@ var addTwoNumbers = function(l1, l2) {
     }
     return l3.next
 };
+
+
+
+
+var addTwoNumbers = function(l1, l2) {
+    if(l1 == null) return l2
+    if(l2 == null) return l1
+    let head = new ListNode(0,null)
+    let p1 = l1, p2 = l2;
+    let info = 0;
+    let p3 = head
+    while(p1 !== null || p2 !== null || info){
+        let s1 = p1 ? p1.val : 0
+        let s2 = p2 ? p2.val : 0 
+        let add = s1 + s2 + info ;
+        if(p1) p1 = p1.next;
+        if(p2) p2 = p2.next;
+        info = Math.floor(add / 10)
+        p3.next = new ListNode((add % 10),null)
+        p3 = p3.next;
+    }
+    return head.next
+};
