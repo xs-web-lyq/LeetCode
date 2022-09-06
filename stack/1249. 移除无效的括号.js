@@ -31,3 +31,38 @@
     }
     return s2
 };
+
+
+// 先将多余的符号找出在去除
+
+let info = new Set()
+let s1 = [];
+for(let i = 0 ,cnt = 0; i < s.length ; i++){
+    if(s[i] == '('){
+        cnt++
+    }else if(s[i] == ')'){
+        if(cnt == 0) {
+            info.add(i)
+            continue;
+        }
+        cnt--;
+    }
+}
+  for(let i = s.length ,cnt = 0; i >= 0 ; i--){
+    if(s[i] == ')'){
+        cnt++
+    }else if(s[i] == '('){
+        if(cnt == 0) {
+            info.add(i)
+            continue;
+        }
+        cnt--;
+    }
+}
+for(let i = 0 ;i < s.length;i++){
+   if(info.has(i)) continue;
+   else s1 += s[i]
+}
+
+
+return s1
