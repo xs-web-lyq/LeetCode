@@ -31,3 +31,21 @@ function levelorder(root, k ,ans){
     levelorder(root.left,k + 1,ans)
     levelorder(root.right,k + 1,ans)
 }
+
+
+
+
+
+// 根据 k 选择表头插入， 表尾插入
+function levelorder(root, k ,ans){
+    if(root == null) return;
+    if(k == ans.length) ans.push([]);
+    if(k % 2 == 1){
+        ans[k].unshift(root.val)
+    } else{
+         ans[k].push(root.val);
+    }
+   
+    levelorder(root.left,k + 1,ans)
+    levelorder(root.right,k + 1,ans)
+}
