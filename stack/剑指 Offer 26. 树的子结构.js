@@ -33,5 +33,5 @@ function is_Match(A , B){
     // 不相等直接返回false;
     if(A.val !== B.val) return false;
     // 递归遍历比对A和B树
-    return is_Match(A.left,B.left) && is_Match(A.right,B.right)
+    return is_Match(A.left,B.left) && is_Match(A.right,B.right);
 }
